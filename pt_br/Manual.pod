@@ -6,7 +6,7 @@ Moose::Manual - O que é o Moose, e como utiliza-lo ?
 
 =head1 O QUE É MOOSE?
 
-Moose é um sistema de objeto I<completo> para Perl 5. Considere qualquer moderna
+Moose é um I<completo> sistema de objeto para Perl 5. Considere qualquer moderna
 linguagem orientada a objetos (que Perl 5 definitivamente não é). Ele fornece
 palavras-chave para a declaração de atributo, construção de objeto, herança,
 e talvez mais. Essas palavras-chave são parte da linguagem, e você não
@@ -219,31 +219,32 @@ pergunta ou dúvida, sinta-se livre para enviar e-mail para Stevan
 ou para a lista moose@perl.org, ou simplesmente vá para o canal 
 irc.perl.org#moose e perguntar.
 
-=item Is Moose just Perl 6 in Perl 5?
+=item Moose é apenas Perl 6 em Perl 5?
 
-No. While Moose is very much inspired by Perl 6, it is not itself Perl
-6. Instead, it is an OO system for Perl 5. Stevan built Moose because
-he was tired of writing the same old boring Perl 5 OO code, and
-drooling over Perl 6 OO. So instead of switching to Ruby, he wrote
+Não. Embora Moose seja muito inspirado no Perl 6, não é próprio Perl
+6. Pelo contrário, é um sistema OO para Perl 5. Stevan construído o Moose 
+porque ele estava cansado de escrever o mesmo velho e chato código OO do Perl 5, e
+babando sobre OO do Perl 6. Então, ao invés de mudar para Ruby, ele escreveu o 
 Moose :)
 
-=item Wait, I<post> modern, I thought it was just I<modern>?
+=item Espere, I<pós> moderno, eu pensei que era apenas I<moderno>?
 
-Stevan read Larry Wall's talk from the 1999 Linux World entitled
-"Perl, the first postmodern computer language" in which he talks about
-how he picked the features for Perl because he thought they were cool
-and he threw out the ones that he thought sucked. This got him
-thinking about how we have done the same thing in Moose. For Moose, we
-have "borrowed" features from Perl 6, CLOS (LISP), Smalltalk, Java,
-BETA, OCaml, Ruby and more, and the bits we didn't like (cause they
-sucked) we tossed aside. So for this reason (and a few others) Stevan
-has re-dubbed Moose a I<postmodern> object system.
+Stevan leu a apresentação do Larry Wall na Linux World 1999 intitulado
+"Perl, a primeira linguagem de computador pós-moderno", no qual ele fala sobre
+como ele escolheu os recursos para Perl porque achava que eles eram legais
+e ele jogou fora os que ele achava horrível. 
 
-Nuff Said.
+Isto o fez pensar sobre como fizemos a mesma coisa no Moose. Para o Moose, 
+pegamos "emprestado" os recursos do Perl 6, CLOS (LISP), Smalltalk, Java,
+BETA, OCaml, Ruby e muito mais, e os detalhes que não gostamos (porque eles
+chatos) jogamos fora. Assim, por esse motivo (e alguns outros) Stevan
+foi re-apelidado de Moose um sistema de objeto I<pós-moderno>.
+
+Temos dito.
 
 =back
 
-=head1 AUTHORS
+=head1 AUTORES
 
 Dave Rolsky E<lt>autarch@urth.orgE<gt>
 
@@ -253,7 +254,7 @@ Stevan Little E<lt>stevan@iinteractive.comE<gt>
 
 Solli M. Honório E<lt>shonorio@perl.org.brE<gt>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT E LICENÇA
 
 Copyright 2008-2009 by Infinity Interactive, Inc.
 
@@ -261,5 +262,8 @@ L<http://www.iinteractive.com>
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
+Este programa é software livre; você pode redistribuí-lo e/ou modificar
+nos mesmos termos que o próprio Perl.
 
 =cut
