@@ -168,57 +168,56 @@ No entanto, pensamos que a escolha de um subconjunto destes recursos e usá-los 
 
 =item L<Moose::Manual::FAQ>
 
-Frequently asked questions about Moose.
+Perguntas frequentes sobre Moose.
 
 =item L<Moose::Manual::Contributing>
 
-Interested in hacking on Moose? Read this.
+Interessado em contribuir com o Moose? Leia este.
 
 =item L<Moose::Manual::Delta>
 
-This document details backwards-incompatibilities and other major
-changes to Moose.
+Este documento detalha as incompatibilidades com versões anterior e outras grandes
+alterações no Moose.
 
 =back
 
-=head1 JUSTIFICATION
+=head1 JUSTIFICAÇÃO
 
-If you're still asking yourself "Why do I need this?", then this
-section is for you.
+Se você ainda está se perguntando: "Por que eu preciso disso?", então esta
+seção é para você.
 
 =over 4
 
-=item Another object system!?!?
+=item Outro sistema de objeto !?!?
 
-Yes, we know there are many, many ways to build objects in Perl 5,
-many of them based on inside-out objects and other such things. Moose
-is different because it is not a new object system for Perl 5, but
-instead an extension of the existing object system.
+Sim, sabemos que há muitas, muitas maneiras de construir objetos em Perl 5,
+muitos deles com base no inside-out, entre outras técnicas. Moose
+é diferente não porque é um novo sistema de objeto para Perl 5, mas
+em vez disso uma extensão do sistema objeto existente.
 
-Moose is built on top of L<Class::MOP>, which is a metaclass system
-for Perl 5. This means that Moose not only makes building normal
-Perl 5 objects better, but it also provides the power of metaclass
-programming.
+Moose é construído em cima do L<Class::MOP>, que é um sistema metaclasse
+para Perl 5. Isto significa que Moose não só construe objetos
+Perl 5 melhor, mas também fornece a potência da programação metaclasse.
 
-=item Is this for real? Or is this just an experiment?
+=item Isto é real? Ou isso é apenas uma experiência?
 
-Moose is I<based> on the prototypes and experiments Stevan did for the
-Perl 6 meta-model. However, Moose is B<NOT> an experiment or
-prototype; it is for B<real>.
+Moose é I<baseado> nos protótipos e experimentos que Stevan fez para o
+Perl 6 meta-modelo. No entanto, Moose é B<não> é um experimento ou
+protótipo, é para B<real>.
 
-=item Is this ready for use in production?
+=item Esta pronto para ser utilizado na em ambiente de produção ?
 
-Yes.
+Sim.
 
-Moose has been used successfully in production environments by many
-people and companies. There are Moose applications which have been in
-production with little or no issue now for years. We consider it
-highly stable and we are committed to keeping it stable.
+Moose vem sendo utilizado com sucesso em ambientes de produção por 
+muitas pessoas e empresas. Existem aplicações Moose em
+produção, com pouco ou nenhum problema por anos. Consideramos-o
+altamente estável e estamos comprometidos à mantê-lo estável.
 
-Of course, in the end, you need to make this call yourself. If you
-have any questions or concerns, please feel free to email Stevan or
-the moose@perl.org list, or just stop by irc.perl.org#moose and ask
-away.
+Claro que, no final, fará isto por si mesmo. Se você tem alguma 
+pergunta ou dúvida, sinta-se livre para enviar e-mail para Stevan
+ou para a lista moose@perl.org, ou simplesmente vá para o canal 
+irc.perl.org#moose e perguntar.
 
 =item Is Moose just Perl 6 in Perl 5?
 
