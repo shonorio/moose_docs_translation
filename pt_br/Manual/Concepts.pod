@@ -20,44 +20,45 @@ Saber o que significa estes conceitos no Moose, e como eles são
 feitos no Perl 5 OO padrão é uma boa maneira de começar a aprender a usar
 Moose.
 
-=head2 Class
+=head2 Classe
 
-When you say "use Moose" in a package, you are making your package a
-class. At its simplest, a class will consist simply of attributes
-and/or methods. It can also include roles, method modifiers, and more.
+Quando você diz "use Moose" em um pacote, você está transformando
+o seu pacote numa classe. Na sua forma mais simples, uma classe 
+será composto apenas de atributos e/ou métodos. Também pode incluir 
+funções, modificadores de método, e muito mais.
 
-A class I<has> zero or more B<attributes>.
+Uma classe I<possue> zero ou mais B<atributos>.
 
-A class I<has> zero or more B<methods>.
+Uma classe I<possue> zero ou mais B<métodos>.
 
-A class I<has> zero or more superclasses (aka parent classes). A
-class inherits from its superclass(es).
+Uma classe I<possue> zero ou mais superclasse(s) (conhecido como classe pai). Uma 
+classe herda de sua(s) superclasse(s).
 
-A class I<has> zero or more B<method modifiers>. These modifiers can
-apply to its own methods or methods that are inherited from its
-ancestors.
+Uma classe I<possue> zero ou mais B<métodos modificadores>. Estes modificadores
+podem se aplicar aos seus próprios métodos ou métodos que são herdados de seus
+parentes.
 
-A class I<does> (and I<consumes>) zero or more B<roles>.
+Uma classe I<faz> (e I<consume>) zero ou mais B<roles>.
 
-A class I<has> a B<constructor> and a B<destructor>. These are
-provided for you "for free" by Moose.
+Uma classe I<possue> um B<construtor> e um B<destrutor>. Estes são
+fornecidos para você "gratuitamente" pelo Moose.
 
-The B<constructor> accepts named parameters corresponding to the
-class's attributes and uses them to initialize an B<object instance>.
+O B<construtor> aceita parâmetros com nome correspondente ao(s)
+atributo(s) de classe e os usa para inicializar uma B<instância do objeto>.
 
-A class I<has> a B<metaclass>, which in turn has B<meta-attributes>,
-B<meta-methods>, and B<meta-roles>. This metaclass I<describes> the
-class.
+A classe I<possue> a B<metaclasse>, que por sua vez, B<meta-atributos>,
+B<meta-métodos>, e B<meta-roles>. Esta metaclasse I<descreve> a 
+classe.
 
-A class is usually analogous to a category of nouns, like "People" or
+Uma classe geralmente é análogo a uma categoria de substantivos, como "People" ou
 "Users".
 
   package Person;
 
   use Moose;
-  # now it's a Moose class!
+  # agora esta é uma classe Moose !
 
-=head2 Attribute
+=head2 Atributo
 
 An attribute is a property of the class that defines it. It I<always>
 has a name, and it I<may have> a number of other properties.
