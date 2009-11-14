@@ -60,30 +60,30 @@ Uma classe geralmente é análogo a uma categoria de substantivos, como "People"
 
 =head2 Atributo
 
-An attribute is a property of the class that defines it. It I<always>
-has a name, and it I<may have> a number of other properties.
+Um atributo é uma propriedade definido pela classe. Ele I<sempre>
+tem um nome, e I<pode ter> um número de outras propriedades.
 
-These properties can include a read/write flag, a B<type>, accessor
-method names, B<delegations>, a default value, and more.
+Essas propriedades podem incluir marcador (I<flag>) de leitura/gravação, um B<tipo>, 
+ nomes de método de assessor, B<delegações>, um valor padrão, e muito mais.
 
-Attributes I<are not> methods, but defining them causes various
-accessor methods to be created. At a minimum, a normal attribute will
-always have a reader accessor method. Many attributes also have other
-methods, such as a writer method, clearer method, and predicate method
-("has it been set?").
+Atributos não são métodos, mas definindo-os faz com que vários 
+métodos de acesso sejam criados. No mínimo, em um atributo normal, 
+ sempre terá um método de leitura. Muitos atributos têm também outros
+métodos, como um método de escrita, método de limpeza e método de predicado
+("isto foi atribuído (I<set>)?").
 
-An attribute may also define B<delegations>, which will create
-additional methods based on the delegation mapping.
+Um atributo pode também definir B<delegações>, que vai criar 
+ métodos adicionais com base no mapeamento delegação.
 
-By default, Moose stores attributes in the object instance, which is a
-hashref, I<but this is invisible to the author of a Moose-based
-class>!  It is best to think of Moose attributes as "properties" of
-the I<opaque> B<object instance>. These properties are accessed
-through well-defined accessor methods.
+Por padrão, o Moose armazena os atributos na instância do objeto, que é um 
+hashref, I<mas isto é invisível para o autor de classe baseado em Moose>! 
+É melhor pensar nos atributos do Moose como "propriedades" 
+I<transparante> da B<instância do objeto>. Essas propriedades 
+são acessadas através de métodos assessor bem definidos.
 
-An attribute is something that the class's members have. For example,
-People have first and last names. Users have passwords and last login
-datetimes.
+Um atributo é algo que os membros da classe tem. Por exemplo, 
+People têm o primeiro e o último nome. Users têm senhas e o datetimes
+do último login.
 
   has 'first_name' => (
       is  => 'rw',
