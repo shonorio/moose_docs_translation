@@ -90,13 +90,13 @@ do último login.
       isa => 'Str',
   );
 
-=head2 Method
+=head2 Método
 
-A B<method> is very straightforward. Any subroutine you define in your
-class is a method.
+Um B<método> é muito simples. Qualquer sub-rotina que você define na 
+sua classe é um método.
 
-B<Methods> correspond to verbs, and are what your objects can do. For
-example, a User can login.
+B<Métodos> correspondem a verbos, e são o que os seus objetos podem fazer. Por 
+exemplo, o User pode fazer login.
 
   sub login { ... }
 
