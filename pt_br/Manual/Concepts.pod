@@ -3,7 +3,7 @@
 
 Moose::Manual::Concepts - Conceitos do Moose OO
 
-=head1 CONCEITO DO MOOSE (VS "VELHA ESCOLA" do Perl)
+=head1 CONCEITO DO MOOSE (vs Perl "Tradicional")
 
 No passado, você pode não ter pensado muito sobre a diferença
 entre os pacotes (I<packages>) e classes, atributos e métodos, construtores e
@@ -34,7 +34,7 @@ Uma classe I<possue> zero ou mais B<métodos>.
 Uma classe I<possue> zero ou mais superclasse(s) (conhecido como classe pai). Uma 
 classe herda de sua(s) superclasse(s).
 
-Uma classe I<possue> zero ou mais B<métodos modificadores>. Estes modificadores
+Uma classe I<possue> zero ou mais B<modificadores de métodos>. Estes modificadores
 podem se aplicar aos seus próprios métodos ou métodos que são herdados de seus
 parentes.
 
@@ -64,16 +64,16 @@ Um atributo é uma propriedade definido pela classe. Ele I<sempre>
 tem um nome, e I<pode ter> um número de outras propriedades.
 
 Essas propriedades podem incluir marcador (I<flag>) de leitura/gravação, um B<tipo>, 
- nomes de método de assessor, B<delegações>, um valor padrão, e muito mais.
+nomes de método de assessor, B<delegações>, um valor padrão, e muito mais.
 
 Atributos não são métodos, mas definindo-os faz com que vários 
 métodos de acesso sejam criados. No mínimo, em um atributo normal, 
- sempre terá um método de leitura. Muitos atributos têm também outros
+sempre terá um método de leitura. Muitos atributos têm também outros
 métodos, como um método de escrita, método de limpeza e método de predicado
 ("isto foi atribuído (I<set>)?").
 
 Um atributo pode também definir B<delegações>, que vai criar 
- métodos adicionais com base no mapeamento delegação.
+métodos adicionais com base no mapeamento delegação.
 
 Por padrão, o Moose armazena os atributos na instância do objeto, que é um 
 hashref, I<mas isto é invisível para o autor de classe baseado em Moose>! 
@@ -100,37 +100,38 @@ exemplo, o User pode fazer login.
 
   sub login { ... }
 
-=head2 Roles
+=head2 Roles I<Papéis>
 
-A role is something that a class I<does>. We also say that classes
-I<consume> roles. For example, a Machine class might do the Breakable
-role, and so could a Bone class. A role is used to define some concept
-that cuts across multiple unrelated classes, like "breakability", or
-"has a color".
+Um role é algo que uma classe I<faz>. Dizemos também que as classes
+I<consome> roles. Por exemplo, a classe Machine pode ter o role Breakable 
+(I<Quebrável>), assim como a classe Bone. O role é utilizado para definir um conceito
+que atravessa várias classes independentes, como "breakability", ou
+"tem uma cor".
 
-A role I<has> zero or more B<attributes>.
+Um role I<possue> zero ou mais B<atributos>.
 
-A role I<has> zero or more B<methods>.
+Um role I<possue> zero ou mais B<métodos>.
 
-A role I<has> zero or more B<method modifiers>.
+Um role I<possue> zero ou mais B<modificadores de métodos>.
 
-A role I<has> zero or more B<required methods>.
+Um role I<possue> zero ou mais B<métodos requeridos>.
 
-A required method is not implemented by the role. Required methods say
-"to use this Role you must implement this method".
+O método requerido não é implementado pelo role. Método requerido informa
+informa "que para utilizar este Role você tem que implementar este método".
 
-A role I<has> zero or more B<excluded roles>.
+Um role I<possue> zero ou mais B<roles excluídos>.
 
-An excluded role is a role that the role doing the excluding says it
-cannot be combined with.
+Um role excluído é um role que o role que excluí as roles que não pode ser 
+combinada com esta role.
 
-Roles are I<composed> into classes (or other roles). When a role is
-composed into a class, its attributes and methods are "flattened" into
-the class. Roles I<do not> show up in the inheritance hierarchy. When
-a role is composed, its attributes and methods appear as if they were
-defined I<in the consuming class>.
+Os roles são I<compostos> dentro das classes (ou de outros roles). Quando um role é
+compostos dentro de uma classe, seus atributos e métodos são "incluídos" na classe. 
+Os roles I<não aparecem> na hierarquia de herança. Quando
+um role é composto, seus atributos e os métodos são exibidos como se fossem
+definidos I<na própria classe>.
 
-Role are somewhat like mixins or interfaces in other OO languages.
+	
+Role são como mixins ou interfaces em outros linguagens OO.
 
   package Breakable;
 
@@ -149,20 +150,20 @@ Role are somewhat like mixins or interfaces in other OO languages.
       $self->is_broken(1);
   };
 
-=head2 Method modifiers
+=head2 Modificadores de Método  
 
-A B<method modifier> is a hook that is called when a named method is
-called. For example, you could say "before calling C<login()>, call
-this modifier first". Modifiers come in different flavors like
-"before", "after", "around", and "augment", and you can apply more
-than one modifier to a single method.
+Um modificador de método é um hook (I<gancho>) que é processado quando um método nomeado é 
+chamado. Por exemplo, você poderia dizer que "antes de chamar o C<login()>, chame 
+esse modificador primeiro". Modificadores vêm em diferentes sabores como 
+"before" (I<"antes">), "after" (I<"depois">), "around" (I<"em torno">) e "augment" (I<"aumentar">), 
+e você pode aplicar mais de um modificador em um único método.
 
-Method modifiers are often used as an alternative to overriding a
-method in a parent class. They are also used in roles as a way of
-modifying methods in the consuming class.
+Modificares de método são muitas vezes utilizados como uma alternativa para substituir 
+um método na classe pai. Eles também são usados em role como uma maneira de 
+modificar os métodos na classe de consumo.
 
-Under the hood, a method modifier is just a plain old Perl subroutine
-that gets called before or after (or around, etc.) some named method.
+Sob o capô, um modificador de método é apenas uma rotina normal em Perl 
+que é chamado antes ou depois (ou cerca, etc) que o método chamado.
 
   before 'login' => sub {
       my $self = shift;
@@ -171,90 +172,88 @@ that gets called before or after (or around, etc.) some named method.
       warn "Called login() with $pw\n";
   };
 
-=head2 Type
+=head2 Tipo
 
-Moose also comes with a (miniature) type system. This allows you to
-define types for attributes. Moose has a set of built-in types based
-on what Perl provides, such as C<Str>, C<Num>, C<Bool>, C<HashRef>, etc.
+Moose também vem com um sistema do tipo (em miniatura). Isso lhe permite
+definir os tipos para os atributos. Moose tem um conjunto de tipos nativos baseado 
+no que é fornecido no Perl, como C<Str>, C<Num>, C<Bool>, C<HashRef>, etc.
 
-In addition, every class name in your application can also be used as
-a type name.
+Além disso, cada classe da sua aplicação também pode ser utilizado como tipo.
 
-Finally, you can define your own types, either as subtypes or entirely
-new types, with their own constraints. For example, you could define a
-type C<PosInt>, a subtype of C<Int> which only allows positive numbers.
+Finalmente, você pode definir seus próprios tipos, quer como subtipos ou tipos 
+totalmente novos, com suas próprias restrições. Por exemplo, você pode definir um 
+tipo C<PosInt>, um subtipo do C<Int> que permite apenas números positivos.
 
-=head2 Delegation
+=head2 Delegação
 
-Moose attributes provide declarative syntax for defining
-delegations. A delegation is a method which calls some method on an
-attribute to do its real work.
+Atributos Moose fornecem sintaxe declarativa para definir
+delegações. A delegação é um método que carrega método de um
+atributo para fazer o trabalho real.
 
-=head2 Constructor
+=head2 Construtor
 
-A constructor creates an B<object instance> for the class. In old
-school Perl, this was usually done by defining a method called
-C<new()> which in turn called C<bless> on a reference.
+O construtor cria uma B<instância do objeto> da classe. No Perl tradicional, 
+é feito através da definição de um método chamado 
+de C<new()>, que por sua vez é abençoado com uma referência.
 
-With Moose, this C<new()> method is created for you, and it simply
-does the right thing. You should never need to define your own
-constructor!
+Com o Moose, o método C<new()> é criado para você, e simplesmente
+faz a coisa certa. Você nunca precisará definir o seu próprio
+construtor!
 
-Sometimes you want to do something whenever an object is created. In
-those cases, you can provide a C<BUILD()> method in your class. Moose
-will call this for you after creating a new object.
+Às vezes você quer fazer algo, sempre que um objeto é criado. 
+Nesses casos, você pode fornecer o método C<BUILD()> em sua classe. Moose
+vai chamar isso para você depois de criar um novo objeto.
 
-=head2 Destructor
+=head2 Destruidor
 
-This is a special method called when an object instance goes out of
-scope. You can specialize what your class does in this method if you
-need to, but you usually don't.
+Este é um método especial chamado quando a instância objeto sai do 
+escopo. Você pode especificar o quê a sua classe faz neste método se você 
+precisar, mas normalmente você não precisará.
 
-With old school Perl 5, this is the C<DESTROY()> method, but with
-Moose it is the C<DEMOLISH()> method.
+No Perl 5 tradicional, este é o método C<DESTROY()>, mas no Moose
+o método é o C<DEMOLISH()>.
 
-=head2 Object instance
+=head2 Instância de Objeto
 
-An object instance is a specific noun in the class's "category". For
-example, one specific Person or User. An instance is created by the
-class's B<constructor>.
+Uma instância de objeto é um substantivo específico na "categoria" da classe. Por 
+exemplo, uma determinada Pessoa ou Usuário. Uma instância é criada pelo
+B<constructor> de classe.
 
-An instance has values for its attributes. For example, a specific
-person has a first and last name.
+Uma instância tem valores para seus atributos. Por exemplo, um determinado
+pessoa tem um nome e sobrenome.
 
-In old school Perl 5, this is often a blessed hash reference. With
-Moose, you should never need to know what your object instance
-actually is. (Okay, it's usually a blessed hashref with Moose, too.)
+No Perl 5 tradicional, esta é muitas vezes uma referência de hash. Com
+Moose, você não precisa se preocupar sobre o que a sua instância do objeto
+realmente é. (Ok, é geralmente um hashref blessed (I<abençoado>) com Moose, também.)
 
-=head2 Moose vs old school summary
+=head2 Moose vs tradicional, em resumo
 
 =over 4
 
-=item * Class
+=item * Classe
 
-A package with no introspection other than mucking about in the symbol
-table.
+Pacote com nenhuma introspecção que não seja o lamaçal da manipulação 
+da tabela de símbolo.
 
-With Moose, you get well-defined declaration and introspection.
+Com o Moose, você tem declaração e introspecção bem definido.
 
-=item * Attributes
+=item * Atributos
 
-Hand-written accessor methods, symbol table hackery, or a helper
-module like C<Class::Accessor>.
+Métodos de acesso manuscrito, manipulação da tabela de símbolos, ou a utilização
+de um módulo auxiliar como o C<Class::Accessor>.
 
-With Moose, these are declaratively defined, and distinct from
-methods.
+Com Moose, estes são definidos de forma declarativa, e distinta dos métodos.
 
-=item * Method
+=item * Métodos
 
-These are pretty much the same in Moose as in old school Perl.
+Estes são muito semelhantes em Moose e no Perl tradicional.
 
 =item * Roles
 
 C<Class::Trait> or C<Class::Role>, or maybe C<mixin.pm>.
 
-With Moose, they're part of the core feature set, and are
-introspectable like everything else.
+Com Moose, eles são parte do núcleo do conjunto de recursos, e são
+introspectado com tudo mais.
 
 =item * Method Modifiers
 
