@@ -255,45 +255,53 @@ C<Class::Trait> or C<Class::Role>, or maybe C<mixin.pm>.
 Com Moose, eles são parte do núcleo do conjunto de recursos, e são
 introspectado com tudo mais.
 
-=item * Method Modifiers
+=item * Modificadores de Métodos
 
-Could only be done through serious symbol table wizardry, and you
-probably never saw this before (at least in Perl 5).
+Só poderia ser feito através de 'magia negra' na tabela de símbolo, e você
+provavelmente nunca viu isso antes (pelo menos em Perl 5).
 
-=item * Type
+=item * Tipo
 
-Hand-written parameter checking in your C<new()> method and accessors.
+Verificação manual de parâmetro no seu método C<new()> e assessores.
 
-With Moose, you define types declaratively, and then use them by name
-in your attributes.
+Com Moose você declara os tipos, e os utiliza pelo nome
+em seus atributos.
 
-=item * Delegation
+=item * Delegação
 
-C<Class::Delegation> or C<Class::Delegator>, but probably even more
-hand-written code.
+C<Class::Delegation> or C<Class::Delegator>, mas provavelmente mais codificação 
+manual.
 
-With Moose, this is also declarative.
+Com Moose, isso também é declarativa.
 
-=item * Constructor
+=item * Construtor
 
-A C<new()> method which calls C<bless> on a reference.
+Um método C<new()> que chama C<bless> em uma referência.
 
-Comes for free when you define a class with Moose.
+Vem de graça quando você define uma classe com Moose.
 
-=item * Destructor
+=item * Destruidor
 
-A C<DESTROY()> method.
+O método C<DESTROY()>.
 
-With Moose, this is called C<DEMOLISH()>.
+Com Moose, ele é chamado de C<DEMOLISH()>.
 
-=item * Object Instance
+=item * Instância de objeto 
 
-A blessed reference, usually a hash reference.
+Uma referência blessed (I<abençoado>), geralmente uma referência de hash.
 
-With Moose, this is an opaque thing which has a bunch of attributes
-and methods, as defined by its class.
+Com Moose, isso é uma coisa transparente que tem um monte de atributos
+e métodos, tal como definido pela sua classe.
 
-=item * Immutabilization
+=item * Imutabilização
+
+Moose vem com um recurso chamado "imutabilização". Quando você define 
+sua classe imutável, isso significa que você é feito adicionando métodos, atributos,
+papéis, etc.
+
+ Moose Isso permite otimizar a sua classe com um bando de
+extremamente sujo em truques lugar de geração de código que acelerar as coisas
+como a construção de objetos e assim por diante.
 
 Moose comes with a feature called "immutabilization". When you make
 your class immutable, it means you're done adding methods, attributes,
