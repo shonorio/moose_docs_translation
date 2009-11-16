@@ -295,28 +295,18 @@ e métodos, tal como definido pela sua classe.
 
 =item * Imutabilização
 
-Moose vem com um recurso chamado "imutabilização". Quando você define 
-sua classe imutável, isso significa que você é feito adicionando métodos, atributos,
-papéis, etc.
-
- Moose Isso permite otimizar a sua classe com um bando de
-extremamente sujo em truques lugar de geração de código que acelerar as coisas
-como a construção de objetos e assim por diante.
-
-Moose comes with a feature called "immutabilization". When you make
-your class immutable, it means you're done adding methods, attributes,
-roles, etc. This lets Moose optimize your class with a bunch of
-extremely dirty in-place code generation tricks that speed up things
-like object construction and so on.
+Moose vem com um recurso chamado "imutabilização". Quando você cria 
+sua classe imutável, significa que você o fez adicionando métodos, atributos,
+roles, etc. Isto faz o Moose otimizar a sua classe com vários truques sujos 
+para acelerar as coisas como a construção de objetos e assim por diante.
 
 =back
 
-=head1 META WHAT?
+=head1 O QUE É META?
 
-A metaclass is a class that describes classes. With Moose, every class
-you define gets a C<meta()> method. It returns a L<Moose::Meta::Class>
-object, which has an introspection API that can tell you about the
-class it represents.
+Uma metaclasse é uma classe que descreve as classes. Com Moose, cada classe
+que você definir ganha um método C<meta()>. Ele retorna o objeto L<Moose::Meta::Class>,
+que possue API de introspecção no qual você pode obter informação da classe em sí.
 
   my $meta = User->meta();
 
@@ -332,24 +322,23 @@ class it represents.
       print $method->name, "\n";
   }
 
-Almost every concept we defined earlier has a meta class, so we have
+Quase todos os conceito que definimos anteriormente tem uma meta classe, por isso temos
 L<Moose::Meta::Class>, L<Moose::Meta::Attribute>,
 L<Moose::Meta::Method>, L<Moose::Meta::Role>,
-L<Moose::Meta::TypeConstraint>, L<Moose::Meta::Instance>, and so on.
+L<Moose::Meta::TypeConstraint>, L<Moose::Meta::Instance>, e assim por diante.
 
-=head1 BUT I NEED TO DO IT MY WAY!
+=head1 MAS EU PRECISO FAZER DO MEU JEITO!
 
-One of the great things about Moose is that if you dig down and find
-that it does something the "wrong way", you can change it by extending
-a metaclass. For example, you can have arrayref based objects, you can
-make your constructors strict (no unknown parameters allowed!), you can
-define a naming scheme for attribute accessors, you can make a class a
-Singleton, and much, much more.
+Uma das grandes característica sobre o Moose é que se você cavar e achar
+que ele faz algo da "maneira errado", você pode mudá-lo estendendo através 
+metaclasse. Por exemplo, você pode ter um objeto basedo em arrayref, você pode 
+fazer seus construtores estrito (não permite parâmetros desconhecidos !), você 
+pode definir um esquema de nomeação para os assessores de atributo, você pode fazer
+uma classe de um Singleton, e muito, muito mais.
 
-Many of these extensions require surprisingly small amounts of code,
-and once you've done it once, you'll never have to hand-code "your way
-of doing things" again. Instead you'll just load your favorite
-extensions.
+Muitas destas extensões surpreendentemente requerem uma pequena quantidades de código, 
+e uma vez que você fez isso, você nunca vai ter a codificar manualmente "sua maneira
+de fazer as coisas" novamente. Em vez disso você só vai carregar suas extensões favoritas.
 
   package MyWay::User;
 
