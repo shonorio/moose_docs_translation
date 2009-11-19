@@ -360,8 +360,8 @@ Ou você pode ignorar isso e ir direto para L<Moose::Manual::Classes>
 e o resto do L<Moose::Manual>.
 
 Depois disso, recomendamos que você inicie com o L<Moose::Cookbook>. Se 
-você trabalhar seu caminho através de todas as receitas sob o ponto básico, 
-você deverá ter uma boa noção de como o Moose funciona, e todas as suas 
+você estudar através de todas as receitas Basic (I<Básico>), 
+deverá ter uma boa noção de como o Moose funciona, e todas as suas 
 características básicas de OO.
 
 Depois disto, confira as receitas de Role. Se você for realmente curioso, 
