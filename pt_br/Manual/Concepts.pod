@@ -348,28 +348,27 @@ de fazer as coisas" novamente. Em vez disso você só vai carregar suas extensõ
 
   has ...;
 
-=head1 WHAT NEXT?
+=head1 E AGORA?
 
-So you're sold on Moose. Time to learn how to really use it.
+Você está convencido sobre o Moose. Hora de aprender a utilizá-lo realmente.
 
-If you want to see how Moose would translate directly into old school
-Perl 5 OO code, check out L<Moose::Manual::Unsweetened>. This might be
-helpful for quickly wrapping your brain around some aspects of "the
-Moose way".
+Se você quiser ver como traduzir para Moose códigos OO em Perl 5 padrão, 
+confira L<Moose::Manual::Unsweetened>. Isso pode ser útil para rapidamente 
+envolver o seu cérebro em torno de alguns aspectos do "à maneira do Moose".
 
-Or you can skip that and jump straight to L<Moose::Manual::Classes>
-and the rest of the L<Moose::Manual>.
+Ou você pode ignorar isso e ir direto para L<Moose::Manual::Classes> 
+e o resto do L<Moose::Manual>.
 
-After that we recommend that you start with the L<Moose::Cookbook>. If
-you work your way through all the recipes under the basics section,
-you should have a pretty good sense of how Moose works, and all of its
-basic OO features.
+Depois disso, recomendamos que você inicie com o L<Moose::Cookbook>. Se 
+você trabalhar seu caminho através de todas as receitas sob o ponto básico, 
+você deverá ter uma boa noção de como o Moose funciona, e todas as suas 
+características básicas de OO.
 
-After that, check out the Role recipes. If you're really curious, go
-on and read the Meta and Extending recipes, but those are mostly there
-for people who want to be Moose wizards and change how Moose works.
+Depois disto, confira as receitas de Role. Se você for realmente curioso, 
+leia as receitas de Meta e Extensão, mas esses são principalmente para 
+pessoas que querem ser mestres no Moose e alterar a forma como ele trabalha.
 
-=head1 AUTHOR
+=head1 AUTOR
 
 Dave Rolsky E<lt>autarch@urth.orgE<gt>
 
