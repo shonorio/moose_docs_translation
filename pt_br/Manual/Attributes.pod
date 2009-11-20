@@ -2,26 +2,27 @@
 
 =head1 NAME
 
-Moose::Manual::Attributes - Object attributes with Moose
+Moose::Manual::Attributes - Atributos  de Objeto Moose 
 
-=head1 INTRODUCTION
+=head1 INTRODUÇÃO
 
-Moose attributes have many properties, and attributes are probably the
-single most powerful and flexible part of Moose. You can create a
-powerful class simply by declaring attributes. In fact, it's possible
-to have classes that consist solely of attribute declarations.
+Atributos Moose têm muitas propriedades, e os atributos são, provavelmente, 
+a mais poderosa e flexível parte da Moose. Você pode criar uma classe poderosa, 
+simplesmente declarando atributos. Na verdade, é possível ter classes que 
+consistam exclusivamente em declarações de atributos.
 
-An attribute is a property that every member of a class has. For
-example, we might say that "every C<Person> object has a first name and
-last name". Attributes can be optional, so that we can say "some C<Person>
-objects have a social security number (and some don't)".
+Um atributo é uma propriedade que cada membro de uma classe tem. Por 
+exemplo, poderíamos dizer que "cada objeto C<Person> tem 'first name' e 
+'last name'". Os atributos podem ser opcionais, para que possamos dizer 
+que "alguns objetos C<Person> ter um número de segurança social (e outros não)".
 
-At its simplest, an attribute can be thought of as a named value (as
-in a hash) that can be read and set. However, attributes can also have
-defaults, type constraints, delegation and much more.
+Na sua forma mais simples, um atributo pode ser pensado como um valor 
+com nome (como em um hash), que pode ser lido e definido. No entanto, 
+os atributos também pode ter valores padrão, restrições de tipo, delegação 
+e muito mais.
 
-In other languages, attributes are also referred to as slots or
-properties.
+Em outras linguagens, os atributos também são referidos como slots ou 
+propriedades.
 
 =head1 ATTRIBUTE OPTIONS
 
