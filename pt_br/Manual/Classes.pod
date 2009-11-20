@@ -93,34 +93,33 @@ C<< Person->can('has') >> não será mais válido.
 Uma forma mais genérica para unimport não somente as exportações do L<Moose>, mas também 
 todas tipos de bibliotecas e outros módulos é usar L<namespace::clean> ou L<namespace::autoclean>.
 
-=head1 MAKING IT FASTER
+=head1 CRIANDO ISTO RÁPIDO
 
-Moose has a feature called "immutabilization" that you can use to
-greatly speed up your classes at runtime. However, using it does incur
-a cost when your class is first being loaded. When you make your class
-immutable you tell Moose that you will not be changing it in the
-future. You will not be adding any more attributes, methods, roles, etc.
+Moose tem um recurso chamado "immutabilization" que você pode usar para 
+aumentar a velocidade das suas classes em tempo de execução. No entanto, 
+utilizar este recurso provocará lentidão na primeira carga da classe. Quando você transforma a 
+sua classe imutável, você diz ao Moose que ela não sofrerá alterações 
+no futuro. Você não poderá acrescentar qualquer atributo, método, role, etc
 
-This allows Moose to generate code specific to your class. In
-particular, it creates an "inline" constructor, making object
-construction much faster.
+Isso faz com que o Moose gere códigos específicos para sua classe. Em 
+particular, ele cria um construtor "inline", tornando a construção 
+do objeto mais rápida.
 
-To make your class immutable you simply call C<make_immutable> on your
-class's metaclass object.
+Para tornar a sua classe imutável, você simplesmente carrega C<make_immutable> na
+tua classe.
 
   __PACKAGE__->meta->make_immutable;
 
-=head2 Immutabilization and C<new()>
+=head2 Immutabilization e C<new()>
 
-If you override C<new()> in your class, then the immutabilization code
-will not be able to provide an optimized constructor for your
-class. Instead, you should use a C<BUILD()> method, which will be
-called from the inlined constructor.
+Se você subreescrever o C<new()> na sua classe, então o código de immutabilization
+não será capaz de fornecer um construtor otimizado para a sua classe.
+Em vez disso, você deve usar o método C<BUILD()>, que será chamado 
+a partir do construtor inlined.
 
-Alternately, if you really need to provide a different C<new()>, you
-can also provide your own immutabilization method. Doing so requires
-extending the Moose metaclasses, and is well beyond the scope of this
-manual.
+Alternativamente, se você realmente precisa fornecer um C<new()>, você 
+também pode fornecer seu próprio método immutabilization. Fazer isso requer 
+a expansão da metaclasse do Moose, e está bem além do escopo deste manual.
 
 =head1 AUTOR
 
