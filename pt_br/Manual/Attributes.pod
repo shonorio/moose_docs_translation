@@ -24,9 +24,9 @@ e muito mais.
 Em outras linguagens, os atributos também são referidos como slots ou 
 propriedades.
 
-=head1 ATTRIBUTE OPTIONS
+=head1 OPÇÕES DE ATRIBUTO
 
-Use the C<has> function to declare an attribute:
+Use a função C<has> para declarar um atributo:
 
   package Person;
 
@@ -34,61 +34,62 @@ Use the C<has> function to declare an attribute:
 
   has 'first_name' => ( is => 'rw' );
 
-This says that all C<Person> objects have an optional read-write
-"first_name" attribute.
+Isto diz que todos os objetos C<Person> tem um atributo opcional 
+de leitura-escrita "first_name".
 
-=head2 Read-write vs. read-only
+=head2 Leitura-Escrita vs. Apenas-Leitura
 
-The options passed to C<has> define the properties of the
-attribute. There are many options, but in the simplest form you just
-need to set C<is>, which can be either C<rw> (read-write) or C<ro>
-(read-only). When an attribute is C<rw>, you can change it by passing
-a value to its accessor. When an attribute is C<ro>, you may only read
-the current value of the attribute.
+As opções informada para o C<has> define as propriedades do 
+atributo. Há muitas opções, mas na forma mais simples, você só 
+precisa definir C<is>, que pode ser tanto C<rw> (leitura-escrita) 
+ou C<ro> (somente leitura). Quando um atributo é C<rw>, você 
+pode alterar o seu valor através do assessor. Quando um atributo 
+é C<ro>, você pode apenas ler o valor atual do atributo.
 
-In fact, you could even omit C<is>, but that gives you an attribute
-that has no accessor. This can be useful with other attribute options,
-such as C<handles>. However, if your attribute generates I<no>
-accessors, Moose will issue a warning, because that usually means the
-programmer forgot to say the attribute is read-only or read-write. If
-you really mean to have no accessors, you can silence this warning by
-setting C<is> to C<bare>.
+Na verdade, você pode até omitir C<is>, mas com isto você terá um atributo 
+que não tem nenhum assessor. Isso pode ser útil com outras opções de atributo, 
+como C<handles>. No entanto, se o seu atributo I<não> gera assessores, 
+o Moose irá emitir um aviso, porque normalmente significa que o programador 
+esqueceu de dizer o atributo é somente leitura ou leitura-gravação. Se 
+você realmente quer dizer que não têm assessores, você pode silenciar 
+este aviso trocando C<is> por C<bare>.
 
 =head2 Accessor methods
 
-Each attribute has one or more accessor methods. An accessor lets you
-read and write the value of that attribute for an object.
+Cada atributo tem um ou mais métodos de acesso. Um assessor lhe permite ler 
+e escrever o valor do atributo para um objeto.
 
-By default, the accessor method has the same name as the attribute. If
-you declared your attribute as C<ro> then your accessor will be
-read-only. If you declared it read-write, you get a read-write
-accessor. Simple.
+Por padrão, o método de assessor tem o mesmo nome do atributo. Se 
+você declarou seu atributo como C<ro> então seu assessor será somente leitura. 
+Se você declarou como leitura-escrita, você obtém um assessor de leitura-escrita. 
+Simples assim.
 
-Given our C<Person> example above, we now have a single C<first_name>
-accessor that can read or write a C<Person> object's C<first_name>
-attribute's value.
+Dada a classe C<Person> exemplo acima, temos agora o único 
+assessor C<first_name> que pode ler ou escrever no atributo de 
+valor C<first_name> do objeto C<Person>.
 
-If you want, you can also explicitly specify the method names to be
-used for reading and writing an attribute's value. This is
-particularly handy when you'd like an attribute to be publicly
-readable, but only privately settable. For example:
+Se quiser, você também pode especificar explicitamente o nome do 
+método a ser usado para leitura e escrita de um atributo. Isto é 
+particularmente útil quando você quiser que um atributo seja lido 
+publicamente, mas escrito apenas em privado. Por exemplo:
 
   has 'weight' => (
       is     => 'ro',
       writer => '_set_weight',
   );
 
-This might be useful if weight is calculated based on other methods.
-For example, every time the C<eat> method is called, we might adjust
-weight. This lets us hide the implementation details of weight
-changes, but still provide the weight value to users of the class.
+Isto pode ser útil se o C<weight> é calculado com base em outros métodos. 
+Por exemplo, toda vez que o C<eat> método é chamado, pode-se ajustar o 
+C<weight>. Isso nos permite esconder os detalhes de implementação de 
+mudanças de C<weight>, mas ainda fornecer o valor do C<weight> para 
+os usuários da classe.
 
-Some people might prefer to have distinct methods for reading and
-writing. In I<Perl Best Practices>, Damian Conway recommends that
-reader methods start with "get_" and writer methods start with "set_".
+Algumas pessoas podem preferir os métodos distintos para a leitura e escrita. 
+Em I<Perl Best Practices>, Damian Conway recomenda que os métodos de 
+leitura começam com "get_" e aos métodos de escrita começam com "set_".
 
-We can do exactly that by providing names for both the C<reader> and
-C<writer> methods:
+Podemos fazer exatamente isso, fornecendo nomes, tanto para os métodos
+C<reader> e C<writer>:
 
   has 'weight' => (
       is     => 'rw',
@@ -96,10 +97,10 @@ C<writer> methods:
       writer => 'set_weight',
   );
 
-If you're thinking that doing this over and over would be insanely
-tedious, you're right! Fortunately, Moose provides a powerful
-extension system that lets you override the default naming
-conventions. See L<Moose::Manual::MooseX> for more details.
+Se você está pensando que fazer isto frequentemente é um trabalho 
+tedioso, você está certo! Felizmente, Moose fornece um sistema de 
+extensão poderosa que lhe permite substituir o padrão para a convenções 
+de nomenclatura. Veja L<Moose::Manual::MooseX> para mais detalhes.
 
 =head2 Predicate and clearer methods
 
