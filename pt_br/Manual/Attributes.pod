@@ -102,7 +102,7 @@ tedioso, você está certo! Felizmente, Moose fornece um sistema de
 extensão poderosa que lhe permite substituir o padrão para a convenções 
 de nomenclatura. Veja L<Moose::Manual::MooseX> para mais detalhes.
 
-=head2 Predicate and clearer methods
+=head2 Predicado e métodos mais claro
 
 Moose allows you to explicitly distinguish between a false or
 undefined attribute value and an attribute which has not been set. If
